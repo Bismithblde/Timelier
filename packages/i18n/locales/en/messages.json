@@ -1,7 +1,7 @@
 {
   "extensionDescription": {
     "description": "Description",
-    "message": "This is a chrome extension boilerplate developed with Vite, React and Typescript"
+    "message": "Timelier is an extension that aims to aid students that are struggling to pay attention."
   },
   "extensionName": {
     "description": "Timelier",

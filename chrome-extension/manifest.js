@@ -36,11 +36,11 @@ const manifest = deepmerge(
     },
     action: {
       default_popup: 'popup/index.html',
-      default_icon: 'icon-34.png',
+      default_icon: 'logo.png',
     },
 
     icons: {
-      128: 'icon-128.png',
+      128: 'logo.png',
     },
     // content_scripts: [
     //   {

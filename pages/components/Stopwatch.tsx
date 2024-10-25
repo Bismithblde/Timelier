@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, useTheme } from '@mui/material';
+import { Box, Button, Link, Typography, useTheme } from '@mui/material';
 import { useStopwatch } from '../contexts/StopwatchContext';
 
 interface StopwatchProps {
@@ -17,22 +17,32 @@ const formatTime = (seconds: number): string => {
 };
 
 export default function Stopwatch({ stopwatch }: { stopwatch: StopwatchProps }) {
+  const { removeStopwatch } = useStopwatch();
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    removeStopwatch(stopwatch.link);
+  };
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '100px',
-        width: '300px',
-        flexDirection: 'row',
-        gap: 2,
-        backgroundColor: '#2d383d',
-        borderRadius: 10,
-        mt: 2,
-      }}>
-      <Typography variant="h5">{stopwatch.name}</Typography>
-      <Typography variant="h5">{formatTime(stopwatch.time)}</Typography>
-    </Box>
+    <>
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: '80px',
+          width: '400px',
+          flexDirection: 'row',
+          gap: 2,
+          backgroundColor: '#2d383d',
+          borderRadius: 10,
+          mt: 2,
+        }}>
+        <Typography variant="h5">{stopwatch.name}</Typography>
+        <Typography variant="h5">{formatTime(stopwatch.time)}</Typography>
+        <Button color="error" onClick={handleClick} type="submit">
+          Remove
+        </Button>
+      </Box>
+    </>
   );
 }
